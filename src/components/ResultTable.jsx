@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 export default function ResultTable({ keyword, user, onAdded }) {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [editing, setEditing] = useState(null);
 
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/users")
@@ -26,6 +27,14 @@ export default function ResultTable({ keyword, user, onAdded }) {
     }
   }, [user]);
 
+  function editUser(user) {
+    setEditing({...user, address: {...user.address}});
+  }
+
+  function removeUser(id) {
+    setUsers((prev) => prev.filter((u) => u.id !== id));
+  }
+
   return (
     <tbody>
       {filteredUsers.map((u) => (
@@ -37,7 +46,10 @@ export default function ResultTable({ keyword, user, onAdded }) {
           <td>{u.address.city}</td>
           <td>
             <button onClick={() => editUser(u)}>Sửa</button>
-            <button onClick={() => removeUser(u.id)}>Xóa</button>
+            {editing && (
+
+            )}
+            <button className="btn-delete" onClick={() => removeUser(u.id)}>Xóa</button>
           </td>
         </tr>
       ))}
