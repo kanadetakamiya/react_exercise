@@ -1,0 +1,7 @@
+.header {
+  display: inline-block;
+  padding: 20px;
+}
+.header div {
+  display: block;
+}

@@ -1,4 +1,6 @@
 import { useState } from "react";
+import "../assets/modal.css";
+import "../assets/header.css";
 
 export default function AddUser({ onAdd }) {
   const [adding, setAdding] = useState(false);
@@ -46,73 +48,132 @@ export default function AddUser({ onAdd }) {
   };
 
   return (
-    <div>
-      <button onClick={() => setAdding(true)}>Thêm</button>
+    <>
+      <div className="header">
+        <button onClick={() => setAdding(true)}>Thêm user</button>
+      </div>
       {adding && (
-        <div>
-          <div>
-            <h4>Thêm người dùng</h4>
-            <label htmlFor="name">Name: </label>
-            <input
-              id="name"
-              type="text"
-              value={user.name}
-              onChange={handleChange}
-            />
-            <label htmlFor="username">Username: </label>
-            <input
-              id="username"
-              type="text"
-              value={user.username}
-              onChange={handleChange}
-            />
-            <label htmlFor="email">Email: </label>
-            <input
-              id="email"
-              type="text"
-              value={user.email}
-              onChange={handleChange}
-            />
-            <h5>Address:</h5>
-            <label htmlFor="street">Street: </label>
-            <input
-              id="street"
-              type="text"
-              value={user.address.street}
-              onChange={handleChange}
-            />
-            <label htmlFor="suite">Suite: </label>
-            <input
-              id="suite"
-              type="text"
-              value={user.address.suite}
-              onChange={handleChange}
-            />
-            <label htmlFor="city">City: </label>
-            <input
-              id="city"
-              type="text"
-              value={user.address.city}
-              onChange={handleChange}
-            />
-            <label htmlFor="phone">Phone: </label>
-            <input
-              id="phone"
-              type="text"
-              value={user.phone}
-              onChange={handleChange}
-            />
-            <label htmlFor="website">Website: </label>
-            <input
-              id="website"
-              type="text"
-              value={user.website}
-              onChange={handleChange}
-            />
-            <button onClick={handleAdd}>Thêm</button>
-          </div>
+        <div style={{ justifyItems: "center" }}>
+          <h4>Thêm người dùng</h4>
+          <table>
+            <tr>
+              <td>
+                <label htmlFor="name">Name: </label>
+              </td>
+              <td>
+                <input
+                  className="modal-content"
+                  id="name"
+                  type="text"
+                  value={user.name}
+                  onChange={handleChange}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label htmlFor="username">Username: </label>
+              </td>
+              <td>
+                <input
+                  className="modal-content"
+                  id="username"
+                  type="text"
+                  value={user.username}
+                  onChange={handleChange}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label htmlFor="email">Email: </label>
+              </td>
+              <td>
+                <input
+                  className="modal-content"
+                  id="email"
+                  type="text"
+                  value={user.email}
+                  onChange={handleChange}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label htmlFor="street">Street: </label>
+              </td>
+              <td>
+                <input
+                  className="modal-content"
+                  id="street"
+                  type="text"
+                  value={user.address.street}
+                  onChange={handleChange}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label htmlFor="suite">Suite: </label>
+              </td>
+              <td>
+                <input
+                  className="modal-content"
+                  id="suite"
+                  type="text"
+                  value={user.address.suite}
+                  onChange={handleChange}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label htmlFor="city">City: </label>
+              </td>
+              <td>
+                <input
+                  className="modal-content"
+                  id="city"
+                  type="text"
+                  value={user.address.city}
+                  onChange={handleChange}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label htmlFor="phone">Phone: </label>
+              </td>
+              <td>
+                <input
+                  className="modal-content"
+                  id="phone"
+                  type="text"
+                  value={user.phone}
+                  onChange={handleChange}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label htmlFor="website">Website: </label>
+              </td>
+              <td>
+                <input
+                  className="modal-content"
+                  id="website"
+                  type="text"
+                  value={user.website}
+                  onChange={handleChange}
+                />
+              </td>
+            </tr>
+          </table>
+          <button style={{ margin: "10px" }} onClick={handleAdd}>
+            Thêm
+          </button>
         </div>
       )}
-    </div>
+    </>
   );
 }
